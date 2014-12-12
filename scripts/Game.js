@@ -1,7 +1,7 @@
 var Game = React.createClass({
     render: function() {
         return (
-            <div>
+            <div id="game">
                 Hello World!
             </div>
         );
