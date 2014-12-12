@@ -1,5 +1,4 @@
 window.React = require("react");
 
-var Game = require("./scripts/Game.js");
-
-React.render(<Game/>, document.body);
+var GameFrame = require("./scripts/GameFrame.js");
+React.render(<GameFrame/>, document.body);

@@ -1,11 +1,11 @@
-var Game = React.createClass({
+var GameFrame = React.createClass({
     render: function() {
         return (
-            <div id="game">
+            <div id="game-frame">
                 Hello World!
             </div>
         );
     }
 });
 
-module.exports = Game;
+module.exports = GameFrame;
