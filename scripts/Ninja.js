@@ -12,14 +12,17 @@ var Ninja = React.createClass({
         }
     },
     render: function() {
-        var styles = {
+        var style = {
             left: this.state.position.x + "rem",
             top: this.state.position.y + "rem"
         }
         return (
-            <div id="ninja" style={styles}>
-            </div>
+            <div id="ninja" style={style} onClick={this.onClick}></div>
         )
+    },
+    onClick: function() {
+        this.state.position.x += this.state.velocity.x
+        this.forceUpdate()
     }
 })
 

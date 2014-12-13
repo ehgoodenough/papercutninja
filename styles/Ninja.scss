@@ -7,4 +7,7 @@
     position: absolute;
     
     background-color: red;
+    
+    transition-property: top, left;
+    transition-duration: 0.25s;
 }
