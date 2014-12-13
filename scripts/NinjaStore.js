@@ -1,0 +1,33 @@
+var NinjaActions = require("./NinjaActions")
+
+var NinjaStore = Reflux.createStore({
+    state: {
+        position: {
+            x: 0,
+            y: 0
+        },
+        velocity: 2
+    },
+    getInitialState: function() {
+        return this.state;
+    },
+    onMoveNorth: function() {
+        this.state.position.y -= this.state.velocity
+        this.trigger(this.state)
+    },
+    onMoveSouth: function() {
+        this.state.position.y += this.state.velocity
+        this.trigger(this.state)
+    },
+    onMoveEast: function() {
+        this.state.position.x += this.state.velocity
+        this.trigger(this.state)
+    },
+    onMoveWest: function() {
+        this.state.position.x -= this.state.velocity
+        this.trigger(this.state)
+    },
+    listenables: NinjaActions
+})
+
+module.exports = NinjaStore
