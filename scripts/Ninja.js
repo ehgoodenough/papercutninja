@@ -6,8 +6,8 @@ var Ninja = React.createClass({
                 y: 1
             },
             velocity: {
-                x: 1,
-                y: 1,
+                x: 2,
+                y: 2,
             }
         }
     },
@@ -17,12 +17,8 @@ var Ninja = React.createClass({
             top: this.state.position.y + "rem"
         }
         return (
-            <div id="ninja" style={style} onClick={this.onClick}></div>
+            <div id="ninja" style={style}></div>
         )
-    },
-    onClick: function() {
-        this.state.position.x += this.state.velocity.x
-        this.forceUpdate()
     }
 })
 
