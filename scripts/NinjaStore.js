@@ -8,6 +8,9 @@ var NinjaStore = Reflux.createStore({
         },
         velocity: 1
     },
+    getState: function() {
+        console.log("!")
+    },
     getInitialState: function() {
         return this.state;
     },

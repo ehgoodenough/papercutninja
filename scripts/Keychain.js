@@ -178,4 +178,4 @@ document.addEventListener("keyup", function(event) {
     Keychain.unstrokeKey(event.keyCode)
 })
 
-module.exports = Keychain;
+module.exports = Keychain
