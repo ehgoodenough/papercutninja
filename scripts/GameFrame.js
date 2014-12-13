@@ -1,4 +1,4 @@
-var Ninja = require("./Ninja");
+var Ninja = require("./Ninja")
 
 var GameFrame = React.createClass({
     render: function() {

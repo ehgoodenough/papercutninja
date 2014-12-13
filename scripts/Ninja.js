@@ -1,11 +1,10 @@
 var KeyboardListener = require("./KeyboardListener")
 
 KeyboardListener.addKeyEvent("space bar", function() {
-    NinjaModel.state.position.x += NinjaModel.state.velocity.x
-    NinjaModel.alertListeners()
+    NinjaStore.setState()
 })
 
-var NinjaModel = {
+var NinjaStore = Reflux.createStore({
     state: {
         position: {
             x: 1,
@@ -16,31 +15,22 @@ var NinjaModel = {
             y: 2
         }
     },
+    setState: function() {
+        this.state.position.x += this.state.velocity.x
+        this.trigger(this.state)
+    },
     getState: function() {
         return this.state;
     },
-    addListener: function(listener) {
-        this.listeners.push(listener)
-        listener(this.state)
-    },
-    alertListeners: function() {
-        for(var i = 0; i < this.listeners.length; i++) {
-            var listener = this.listeners[i]
-            listener(this.state)
-        }
-    },
-    listeners: new Array()
-}
+    getInitialState: function() {
+        return this.state;
+    }
+})
 
 var Ninja = React.createClass({
-    getInitialState: function() {
-        return NinjaModel.getState()
-    },
-    componentWillMount: function() {
-        NinjaModel.addListener(function(state) {
-            this.setState(state)
-        }.bind(this))
-    },
+    mixins: [
+        Reflux.connect(NinjaStore)
+    ],
     render: function() {
         var style = {
             left: this.state.position.x + "rem",
