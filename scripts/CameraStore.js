@@ -1,7 +1,5 @@
 var NinjaStore = require("./NinjaStore")
 
-var LEVEL_WIDTH = 60;
-
 var CameraStore = Reflux.createStore({
     state: {
         position: {
@@ -15,13 +13,8 @@ var CameraStore = Reflux.createStore({
     init: function() {
         this.listenTo(NinjaStore, function(state) {
             this.state.position.x = (state.position.x - (2 * 3)) * -1
-            console.log(this.state.position.x)
-            if(this.state.position.x > 0) {
-                this.state.position.x = 0
-            }
-            if(this.state.position.x < LEVEL_WIDTH * -1) {
-                this.state.position.x = LEVEL_WIDTH * -1
-            }
+            this.state.position.x = Math.min(this.state.position.x, 0)
+            this.state.position.x = Math.max(this.state.position.x, -60)
             this.trigger(this.state)
         }.bind(this))
     }

@@ -1,12 +1,14 @@
 var NinjaActions = require("./NinjaActions")
 
+var UNIT = 2;
+
 var NinjaStore = Reflux.createStore({
     state: {
         position: {
-            x: 0,
-            y: 0
+            x: 3 * UNIT,
+            y: 5 * UNIT
         },
-        velocity: 2
+        velocity: UNIT
     },
     getInitialState: function() {
         return this.state;
