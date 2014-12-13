@@ -1,5 +1,6 @@
 var KeyboardListener = {
     keyEvents: {
+        /*functions go here!*/
     },
     addKeyEvent: function(keyString, keyEvent) {
         var keyCode = this.getKeyCode(keyString)
@@ -21,6 +22,8 @@ var KeyboardListener = {
         if(isNaN(keyString)) {
             if(this.keyCodes[keyString]) {
                 return this.keyCodes[keyString]
+            } else {
+                throw keyString + " is not a keystring."
             }
         }
         return keyString
@@ -133,9 +136,5 @@ var KeyboardListener = {
 document.addEventListener("keydown", function(event) {
     KeyboardListener.strokeKey(event.keyCode)
 })
-
-KeyboardListener.addKeyEvent("left arrow", function() {
-    console.log("woohoo!")
-});
 
 module.exports = KeyboardListener;
