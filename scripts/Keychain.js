@@ -37,13 +37,23 @@ var Keychain = {
     actions: new Object(),
     
     strokeKey: function(keyCode) {
-        if(this.actions[keyCode]) {
-            var actions = this.actions[keyCode]
-            for(var index in actions) {
-                actions[index]()
+        if(this.strokes[keyCode] == null) {
+            this.strokes[keyCode] = true
+            if(this.actions[keyCode]) {
+                var actions = this.actions[keyCode]
+                for(var index in actions) {
+                    actions[index]()
+                }
             }
         }
     },
+    unstrokeKey: function(keyCode) {
+        if(this.strokes[keyCode] != null) {
+            this.strokes[keyCode] = false
+            delete this.strokes[keyCode]
+        }
+    },
+    strokes: new Object(),
     
     getKeyCode: function(keyString) {
         if(isNaN(keyString)) {
@@ -162,6 +172,10 @@ var Keychain = {
 
 document.addEventListener("keydown", function(event) {
     Keychain.strokeKey(event.keyCode)
+})
+
+document.addEventListener("keyup", function(event) {
+    Keychain.unstrokeKey(event.keyCode)
 })
 
 module.exports = Keychain;
