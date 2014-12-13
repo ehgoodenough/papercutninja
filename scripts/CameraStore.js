@@ -12,9 +12,9 @@ var CameraStore = Reflux.createStore({
     },
     init: function() {
         this.listenTo(NinjaStore, function(state) {
-            this.state.position.x = (state.position.x - (2 * 3)) * -1
+            this.state.position.x = (state.position.x - (1 * 3)) * -1
             this.state.position.x = Math.min(this.state.position.x, 0)
-            this.state.position.x = Math.max(this.state.position.x, -60)
+            this.state.position.x = Math.max(this.state.position.x, -20)
             this.trigger(this.state)
         }.bind(this))
     }
