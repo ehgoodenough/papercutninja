@@ -1,4 +1,3 @@
-var Keychain = require("./Keychain")
 var NinjaStore = require("./NinjaStore")
 var NinjaActions = require("./NinjaActions")
 

@@ -1,10 +1,10 @@
-var Ninja = require("./Ninja")
+var Level = require("./Level")
 
 var GameFrame = React.createClass({
     render: function() {
         return (
             <div id="game-frame">
-                <Ninja/>
+                <Level/>
             </div>
         )
     }

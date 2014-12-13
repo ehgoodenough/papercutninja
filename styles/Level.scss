@@ -1,0 +1,15 @@
+.level
+{
+    top: 0rem;
+    left: 0rem;
+    width: 29rem * 2;
+    height: 20rem;
+    position: absolute;
+    
+    background-size: cover;
+    background-position: left center;
+    background-image: url("https://raw.githubusercontent.com/arcym/noogadocs/master/public/chattanooga.jpg");
+    
+    transition-duration: 0.25s;
+    transition-property: top, left;
+}
