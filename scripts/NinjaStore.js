@@ -9,10 +9,10 @@ var NinjaStore = Reflux.createStore({
         velocity: 1
     },
     getState: function() {
-        console.log("!")
+        return this.state
     },
     getInitialState: function() {
-        return this.state;
+        return this.state
     },
     onMoveNorth: function() {
         this.state.position.y -= this.state.velocity
